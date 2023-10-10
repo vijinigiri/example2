@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Inputs</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .form .div2, form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        input{
+          margin: 10px;
+          padding: 20px 10px;
+          border-radius: 8px ;
+          width: 250px;
+        }
+        .form{
+            width: 800px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .form .div2{
+            justify-content: center;
+        }
+        tr{
+            text-align: center;
+        }
+        table{
+            font-size: larger;
+        }
+        .result{
+            margin-top: 25px;
+            text-align: center;
+            padding: 8px 18px;
+            font-size: larger;
+        }
+        marquee{
+            background-color: rgb(255, 147, 147);
+            padding: 10px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="logos">
+        <img src="https://gmrit.edu.in/images/logo.jpg"> <img src="https://csigmrit.com/assets/logo2.jpg">
+    </div>
+    <h1>Forecasting The Remaining Useful Life of Electric vehicle Battery</h1>
+    <div class="form">    
+    <form action="evaluate" method="post">
+        <h2>--Enter the values--</h2>
+        {% csrf_token %}
+        <input type="text" placeholder="Enter  cycle index " name="a" required>
+        <input type="text" placeholder="Enter  max voltage discharge (v)" name="b" required>
+        <input type="text" placeholder="Enter  min voltage discharge (v)" name="c" required>
+        <input type="text" placeholder="Enter  time constant current (s)" name="d" required>
+
+        <input type="submit" value="Submit">
+    </form>
+    <div class="div2">
+        <table >
+            <tr><td><b>Guide Name: </b> K. Karthick</td></tr>
+            <tr><th>Group Members</th></tr>
+            <tr><td>K. Yashovardhan</td></tr>
+            <tr><td>K. Ramesh</td></tr>
+            <tr><td>V. Gowri Shankar</td></tr>
+            <tr><td>P. Joshna</td></tr>
+            <tr><td>SK. Sanuwar</td></tr>
+           
+            
+        </table>
+    </div>
+</div>
+    <div class="result">Remaining Useful Life of the Battery : {{ result }} (cycles)</div>
+    <marquee>This is Just a Experimental Project Don't Consider it for Real life applications</marquee>
+</body>
+</html>
